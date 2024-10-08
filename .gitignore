@@ -53,17 +53,17 @@ cover/
 *.mo
 *.pot
 
-# Django stuff:
+# Django stuff
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff:
+# Flask stuff
 instance/
 .webassets-cache
 
-# Scrapy stuff:
+# Scrapy stuff
 .scrapy
 
 # Sphinx documentation
@@ -89,7 +89,7 @@ ipython_config.py
 # poetry
 #poetry.lock
 
-# PEP 582
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
 
 # Celery stuff
@@ -132,18 +132,21 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# VSCode settings
+# vscode stuff
 .vscode/
 
-# PyCharm settings
-#.idea/
+# PyCharm
+.idea/
 
 # FreeCAD backup files
 *.FCStd?
 
-# Project-specific files and paths
-temp/
+# Project-specific files
+temp
 *.vtu
-random geometry/
-C:\Program Files\FreeCAD 0.21/bin/
-C:\Users\peppe\.virtualenvs/
+
+# Virtual environments
+C:/Users/peppe/.virtualenvs/FreeCad_parametric-GtoNENc4/
+
+# Google Drive sync files
+*.gduser
