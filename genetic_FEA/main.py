@@ -1,11 +1,11 @@
 import sys
-import os 
+import os
 from FreecadParametricFEA.run_all import RunAllAnalysis
 from FreecadParametricFEA.genetic_algorithm import GeneticAlgorithm
 
 FREECAD_PATH = "C:/Program Files/FreeCAD 0.21/bin"
 script_dir = os.path.dirname(os.path.realpath(__file__))  # Get the directory of the current script
-FreeCad_Model = os.path.join(script_dir, "CrankShaft_half.fcstd")  # Relative path to the notch model
+FreeCad_Model = os.path.join(script_dir, "part_name.fcstd")  # Relative path to the part name model
 
 import FreeCAD
 

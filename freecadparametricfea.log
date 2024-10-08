@@ -62,3 +62,14 @@
 2024-10-07 23:09:41:FreecadParametricFEA.loghandler:10716:174 INFO FEA test case 7 ran in 1.28125s
 2024-10-07 23:58:58:FreecadParametricFEA.loghandler:23544:58 INFO FreeCAD document G:\My Drive\Study\Data Science\Projects\FEM_project\FreeCad_parametric\Genetic_algorithm_FreeCAD_FEA\models\linkage\linkage.fcstd loaded successfully
 2024-10-07 23:59:02:FreecadParametricFEA.loghandler:23544:174 INFO FEA test case 0 ran in 1.015625s
+2024-10-08 22:48:11:FreecadParametricFEA.loghandler:12400:58 INFO FreeCAD document C:\Users\peppe\FreeCAD-genetic-algorithm_FEA\examples\notch\notch.fcstd loaded successfully
+2024-10-08 22:48:13:FreecadParametricFEA.loghandler:12400:174 INFO FEA test case 0 ran in 0.078125s
+2024-10-08 22:48:14:FreecadParametricFEA.loghandler:12400:174 INFO FEA test case 1 ran in 0.171875s
+2024-10-08 22:48:41:FreecadParametricFEA.loghandler:3368:58 INFO FreeCAD document C:\Users\peppe\FreeCAD-genetic-algorithm_FEA\examples\notch\notch.fcstd loaded successfully
+2024-10-08 22:48:42:FreecadParametricFEA.loghandler:3368:174 INFO FEA test case 0 ran in 0.09375s
+2024-10-08 22:48:43:FreecadParametricFEA.loghandler:3368:58 INFO FreeCAD document C:\Users\peppe\FreeCAD-genetic-algorithm_FEA\examples\notch\notch.fcstd loaded successfully
+2024-10-08 22:48:43:FreecadParametricFEA.loghandler:3368:174 INFO FEA test case 0 ran in 0.03125s
+2024-10-08 22:48:44:FreecadParametricFEA.loghandler:3368:58 INFO FreeCAD document C:\Users\peppe\FreeCAD-genetic-algorithm_FEA\examples\notch\notch.fcstd loaded successfully
+2024-10-08 22:48:45:FreecadParametricFEA.loghandler:3368:174 INFO FEA test case 0 ran in 0.0625s
+2024-10-08 22:48:46:FreecadParametricFEA.loghandler:3368:58 INFO FreeCAD document C:\Users\peppe\FreeCAD-genetic-algorithm_FEA\examples\notch\notch.fcstd loaded successfully
+2024-10-08 22:48:46:FreecadParametricFEA.loghandler:3368:174 INFO FEA test case 0 ran in 0.140625s
