@@ -1,5 +1,5 @@
 import sys
-
+import os 
 from FreecadParametricFEA.run_all import RunAllAnalysis
 from FreecadParametricFEA.genetic_algorithm import GeneticAlgorithm
 
