@@ -2,10 +2,10 @@
 name = "genetic_algorithm_FreeCAD_FEA"
 version = "0.1.0"
 description = "A project to run genetic algorithms with FreeCAD FEA models"
-authors = ["Your Name"]
+authors = ["Giuseppe Rumpore"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8,<3.9"
 numpy = "^1.24"
 pandas = "^1.5"
 plotly = "^5.13"
@@ -22,5 +22,5 @@ sphinx = "^5.0"
 requires = ["poetry>=1.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry.dependencies]
-python = ">=3.8,<3.10"
+
+
