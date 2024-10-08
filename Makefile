@@ -1,4 +1,4 @@
-.PHONY: init add lint run clean update
+.PHONY: init add lint run clean update docs
 
 # Initialize the project by installing dependencies
 init:
@@ -24,3 +24,7 @@ clean:
 # Update all dependencies
 update:
 	poetry update
+
+# Build Sphinx documentation
+docs:
+	sphinx-build -b html docs/ docs/_build/html
