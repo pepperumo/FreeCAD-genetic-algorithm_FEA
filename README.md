@@ -60,7 +60,7 @@ The project uses Poetry and Pipenv for dependency management. You can choose eit
 
 4. Create a Python 3.8 virtual environment:
    ```bash
-   pipenv --python 3.8`
+   pipenv --python 3.8
    ```
 
 
