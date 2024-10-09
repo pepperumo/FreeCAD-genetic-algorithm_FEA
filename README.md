@@ -1,140 +1,97 @@
-# freecadparametricfea
 
- A flexible parametric FEA library based on [FreeCAD](https://www.freecadweb.org/), currently supporting FreeCAD 0.20 on Windows.
- 
- If you have 20 minutes I recommend the video tutorial on the [@engineeringmaths Youtube channel](https://www.youtube.com/watch?v=cwtgB4KpdJo).
+# FreeCAD Genetic Algorithm FEA
 
-> **Warning:**
-> this project is very early release, and should not be used for any serious structural analysis. It is aimed at hobbyists and makers
+This repository contains scripts and utilities to run parametric and genetic algorithm-based finite element analysis (FEA) using FreeCAD. The project is designed to automate the exploration of optimized designs by sweeping parameter values or employing a genetic algorithm to minimize von Mises stress.
 
-## Quickest start
-Create a Python 3.8 virtual environment:
+## Features
 
-`pipenv --python 3.8`
+- **Parametric FEA**: Automate parameter sweeps to run FEA on multiple design configurations and analyze the results.
+- **Genetic Algorithm**: Leverage a genetic algorithm to optimize designs based on von Mises stress results.
+- **FreeCAD Integration**: Scripts dynamically interact with FreeCAD, utilizing its Python API for CAD model manipulation and FEA.
+- **CSV Output**: Results are saved in CSV format, including von Mises stress and the corresponding parameters for easy post-analysis.
+- **Logging**: Comprehensive logging to help monitor progress and debug issues.
 
-Install the latest version from pypi:
+## Requirements
 
-`pipenv install freecadparametricfea`
+- Python 3.8+
+- FreeCAD 0.21+
+  
+The project uses Poetry and Pipenv for dependency management. You can choose either to manage the dependencies.
 
-then run any of the examples inside [the examples folder](examples/)
+## Setup with Poetry
 
-## Quick start
+1. Install [Poetry](https://python-poetry.org/docs/):
+   ```bash
+   curl -sSL https://install.python-poetry.org | python3 -
+   ```
 
-Create a FreeCAD part and assign names to the constraints that you want to change. You need to set up a FEA analysis as well, I have tested this using CalculiX and Netgen.
+2. Clone this repository:
+   ```bash
+   git clone https://github.com/pepperumo/FreeCAD-genetic-algorithm_FEA.git
+   cd FreeCAD-genetic-algorithm_FEA
+   ```
 
-Then in a script, or on the command line, run:
+3. Install dependencies using Poetry:
+   ```bash
+   poetry install
+   ```
 
-```python
-from FreecadParametricFEA import parametric
-import numpy as np
+4. Activate the environment:
+   ```bash
+   poetry shell
+   ```
 
-# initialise a parametric FEA object
-fea = parametric()
+## Setup with Pipenv
 
-# load the FreeCAD model
-fea.set_model("your-part-here.fcstd")
+1. Install [Pipenv](https://pipenv.pypa.io/en/latest/):
+   ```bash
+   pip install pipenv
+   ```
 
-# list the parameters to sweep:
-fea.set_variables(
-    [
-        {
-            "object_name": "CutsSketch", # the object where to find the constraint
-            "constraint_name": "NotchDistance", # the constraint name that you assigned 
-            "constraint_values": np.linspace(10, 30, 5), # the values you want to check
-        },
-        {
-            "object_name": "CutsSketch",
-            "constraint_name": "NotchDiam",
-            "constraint_values": np.linspace(5, 9, 5),
-        },
-    ]
-)
+2. Install dependencies using Pipenv:
+   ```bash
+   pipenv install
+   ```
 
-# run and save the results (will return a Pandas DataFrame)
-results = fea.run_parametric()
+3. Activate the environment:
+   ```bash
+   pipenv shell
+   ```
 
-# plot the results
-fea.plot_fea_results()
-```
+## Running the Project
 
-## Feeling fancy
+1. Adjust the `FREECAD_PATH` in the scripts (`run_all.py`, `genetic_algorithm.py`, etc.) to point to your FreeCAD installation path.
+   
+2. To run a parametric analysis or genetic algorithm, execute:
+   ```bash
+   python main.py
+   ```
+   Choose between `RunAll` or `GeneticAlgorithm` methods when prompted.
 
-### Custom outputs
-The default is to export the max Von Mises stress and max displacement values. You can also specify your own values and data reduction function like this:
+### Parametric Analysis
 
-```python
-fea.set_outputs([
-        {
-            "output_var": "vonMises",
-            "reduction_fun": np.median,
-        },
-        {
-            "output_var": "vonMises",
-            "reduction_fun": lambda v: np.percentile(v, 95),
-            "column_label": "95th percentile"
-        }
-    ])
-```
+The parametric analysis will sweep through all specified parameter ranges and save the results to a CSV file.
 
-### Changing materials
-You can specify any material that you can find in the FreeCAD FEA material selection dropdown; just refer to it by its name:
+### Genetic Algorithm
 
-```python
-fea.set_outputs([
-    {
-        "object_name": "MaterialSolid",  # the object where to find the constraint
-        "constraint_name": "Material",  # the constraint name that you assigned
-        "constraint_values": ["Aluminium-Generic", "Steel-Generic"],
-    },
-])
-```
-### Different names for CCX solver and CCX results
-Renaming the CCX solver and results won't affect the solution, but if you're having trouble running the analysis you can set them yourself just before `run_parametric()`:
+The genetic algorithm will iterate over generations to minimize von Mises stress, saving the best model configuration and results at the end.
 
-```python
-# in case you need to explicitly set the CalculiX results object and the solver name
-fea.setup_fea(fea_results_name="CCX_Results", solver_name="SolverCcxTools")
-```
+## Project Structure
 
-### Exporting data
+- `main.py`: Entry point to choose between parametric analysis and genetic algorithm.
+- `run_all.py`: Runs the parametric FEA analysis over a range of parameters.
+- `genetic_algorithm.py`: Implements the genetic algorithm for design optimization.
+- `parametric.py`: Handles high-level parametric FEA functions.
+- `freecadmodel.py`: Manages interaction with FreeCAD, including model parameter changes and FEA execution.
+- `loghandler.py`: Configures logging.
+- `Makefile`: Makefile for automating common tasks.
+- `pyproject.toml`: Defines the project's dependencies and setup for Poetry.
+- `Pipfile` and `Pipfile.lock`: Define dependencies for Pipenv.
 
-You can export individual ParaView files using:
+## Logging
 
-```python
-results = fea.run_parametric(export_results=True, output_folder="path/to/my/results")
-```
+All logs are stored in `freecadparametricfea.log` for debugging and tracking execution. Ensure you check this log if any issues arise during the execution of FEA or genetic algorithm runs.
 
+## License
 
-Or just save the results dataframe in a .csv, json or serialised pickle object:
-
-```python
-fea.save_fea_results("results.csv")
-fea.save_fea_results("results.json", mode="json")
-fea.save_fea_results("results.pickle", mode="pickle")
-```
-
-... or even take a look at the parameters matrix before running any analysis:
-
-```python
-results = fea.run_parametric(dry_run=True)
-```
-
-### Custom FreeCAD path
-If you have multiple installations of FreeCAD or are using a system other than Windows (as of version <=0.3) you have to specify the path to FreeCAD manually in the call to `parametric`:
-
-```python
-# you can manually specify the path to FreeCAD on your system:
-FREECAD_PATH = "C:/Program Files/FreeCAD 0.20/bin"
-fea = parametric(freecad_path=FREECAD_PATH)
-```
-# Limitations and caveats
-
-As of 0.3:
- * this has been tested on FreeCAD 0.20, on Windows only, but you can try other platforms
- * only Netgen meshes are supported
- * Only static FEM analysis has been tested
-
-# Contributing
-I have created this for hobby and personal use, as I was interested in learning more about FreeCAD and writing Python modules. There are a lot of things that I would like to fix, if you want to get involved have a look at the [open issues](https://github.com/da-crivelli/freecad-parametric-fea/issues/) and send me a message if you have any questions.
-
-
+This project is licensed under the MIT License. See the `LICENSE.md` file for more details.
