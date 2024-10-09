@@ -13,8 +13,8 @@ This repository contains scripts and utilities to run parametric and genetic alg
 
 ## Requirements
 
-- Python 3.8+
-- FreeCAD 0.21+
+- Python 3.8
+- FreeCAD 0.20+
   
 The project uses Poetry and Pipenv for dependency management. You can choose either to manage the dependencies.
 
@@ -57,6 +57,15 @@ The project uses Poetry and Pipenv for dependency management. You can choose eit
    ```bash
    pipenv shell
    ```
+## Setup with Pipenv
+
+Create a Python 3.8 virtual environment:
+
+`pipenv --python 3.8`
+
+
+
+
 
 ## Running the Project
 
