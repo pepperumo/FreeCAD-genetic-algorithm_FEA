@@ -48,33 +48,79 @@ The project uses Poetry and Pipenv for dependency management. You can choose eit
    pip install pipenv
    ```
 
-2. Install dependencies using Pipenv:
+2. Create a Python 3.8 virtual environment:
+   ```bash
+   pipenv --python 3.8
+   ```
+
+3. Install dependencies using Pipenv:
    ```bash
    pipenv install
    ```
 
-3. Activate the environment:
+4. Activate the environment:
    ```bash
    pipenv shell
    ```
-
-4. Create a Python 3.8 virtual environment:
+5. Install Dependencies:
    ```bash
-   pipenv --python 3.8
+   pip install -e 
    ```
+   This command installs the package and its dependencies in editable mode.
+
+
 
 
 ## Running the Project
 
 1. Adjust the `FREECAD_PATH` in the scripts (`run_all.py`, `genetic_algorithm.py`, etc.) to point to your FreeCAD installation path.
+
+2. Modify the path to refer to the project. You could make a copy of the main.py and run inside the folder where the freecad model is installed.
    
-2. To run a parametric analysis or genetic algorithm, execute:
+3. To run a parametric analysis or genetic algorithm, execute:
    ```bash
    python main.py
    ```
-   Choose between `RunAll` or `GeneticAlgorithm` methods when prompted.
+   Choose between `RunAll` or `GeneticAlgorithm` methods when prompted (1 for RunAll, 2 for Genetic Algorithm)
 
-### Parametric Analysis (RunAll)
+
+Below is a sample code snippet from main.py that runs the genetic or RunAll optimization:
+```Python
+import sys
+import os
+from genetic_FEA.run_all import RunAllAnalysis
+from genetic_FEA.genetic_algorithm import GeneticAlgorithm
+
+FREECAD_PATH = "C:/Program Files/FreeCAD 0.21/bin"
+script_dir = os.path.dirname(os.path.realpath(__file__))  # Get the directory of the current script
+FreeCad_Model = os.path.join(script_dir, "part_name.fcstd")  # Relative path to the part name model
+
+import FreeCAD
+
+def main():
+    method = input("Choose the method (1 for RunAll, 2 for GeneticAlgorithm): ")
+
+    if method == "1":
+        analysis = RunAllAnalysis(FREECAD_PATH, FreeCad_Model)
+        analysis.run()
+    elif method == "2":
+        analysis = GeneticAlgorithm(FREECAD_PATH, FreeCad_Model, population_size=20, generations=20)
+        analysis.run()
+    else:
+        print("Invalid method chosen.")
+
+if __name__ == "__main__":
+    main()
+```
+### Notes
+- Make sure you have the correct path to your local FreeCAD installation.
+- If you're encountering ModuleNotFoundError for any packages, verify your PYTHONPATH and ensure all dependencies are installed.
+
+### Next Steps
+- Modify the parameters in main.py or the genetic_FEA module to suit your specific needs.
+- Explore more examples in the examples/ directory to understand various optimization scenarios.
+
+### Parametric Analysis
 
 The parametric analysis will sweep through all specified parameter ranges and save the results to a CSV file.
 
