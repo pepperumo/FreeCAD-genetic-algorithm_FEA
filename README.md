@@ -74,7 +74,7 @@ The project uses Poetry and Pipenv for dependency management. You can choose eit
    ```
    Choose between `RunAll` or `GeneticAlgorithm` methods when prompted.
 
-### Parametric Analysis
+### Parametric Analysis (RunAll)
 
 The parametric analysis will sweep through all specified parameter ranges and save the results to a CSV file.
 
