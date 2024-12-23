@@ -1,4 +1,6 @@
-
+# Differential Self-Driving Robot (BumperBot)
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Udemy][udemy-shield]][udemy-url]
 # FreeCAD Genetic Algorithm FEA
 
 This repository contains scripts and utilities to run parametric and genetic algorithm-based finite element analysis (FEA) using FreeCAD. The project is designed to automate the exploration of optimized designs by sweeping parameter values or employing a genetic algorithm to minimize von Mises stress.
@@ -88,8 +90,12 @@ The genetic algorithm will iterate over generations to minimize von Mises stress
 - `pyproject.toml`: Defines the project's dependencies and setup for Poetry.
 - `Pipfile` and `Pipfile.lock`: Define dependencies for Pipenv.
 
-## Logging
 
+<!-- MARKDOWN LINKS & IMAGES -->
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/pepperumo/
+[udemy-shield]: https://img.shields.io/badge/-Udemy-black.svg?style=flat-square&logo=udemy&colorB=555
+[udemy-url]: https://www.udemy.com/course/self-driving-and-ros-2-learn-by-doing-odometry-control/?referralCode=50BCC4E84DB2DB09BFB3
 All logs are stored in `freecadparametricfea.log` for debugging and tracking execution. Ensure you check this log if any issues arise during the execution of FEA or genetic algorithm runs.
 
 ## License
