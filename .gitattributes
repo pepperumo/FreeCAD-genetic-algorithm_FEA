@@ -1,0 +1,50 @@
+# Text files: enforce LF line endings (for cross-platform compatibility)
+*.py text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+
+# Python scripts: diff-friendly settings
+*.py linguist-language=Python
+*.py diff=python
+
+# FreeCAD files: treat as binary to avoid line ending changes
+*.FCStd binary
+*.FCBak binary
+
+# Images: treat as binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+
+# Logs and databases: treat as binary
+*.log binary
+*.sqlite3 binary
+
+# Ignore diff for certain binary files
+*.FCStd -diff
+*.FCBak -diff
+*.png -diff
+*.jpg -diff
+*.jpeg -diff
+*.svg -diff
+*.sqlite3 -diff
+
+# Virtual environment files: binary and no diff
+*.whl binary
+*.egg-info/ binary
+*.pyd binary
+*.so binary
+
+# Windows-specific FreeCAD installation files
+*.dll binary
+C:\Program Files\FreeCAD 0.21/bin/ -diff
+
+# Miscellaneous configurations
+.vscode/ text eol=lf
+*.toml text
+*.cfg text
+*.ini text
