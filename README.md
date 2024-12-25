@@ -1,8 +1,8 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <div align="center">
-  <img src="Clamp_sizes.png" alt="Image 1" />
-  <img src="Cranckshaft_mesh.png" alt="Image 2" />
+  <img src="Clamp_sizes.png" alt="Image 1" width="400"/>
+  <img src="Cranckshaft_mesh.png" alt="Image 2" width="400"/>
 </div>
 
 ![Image_1](Clamp_sizes.png) ![Image_2](Cranckshaft_mesh.png)
