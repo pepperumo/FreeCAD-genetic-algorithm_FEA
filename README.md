@@ -1,5 +1,7 @@
 # Differential Self-Driving Robot (BumperBot)
 [![LinkedIn][linkedin-shield]][linkedin-url]
+
+
 ![Robot Image](Clamp_sizes.png)
 # FreeCAD Genetic Algorithm FEA
 
