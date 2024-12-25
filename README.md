@@ -1,6 +1,6 @@
 # Differential Self-Driving Robot (BumperBot)
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
+![Robot Image](Clamp_sizes.png)
 # FreeCAD Genetic Algorithm FEA
 
 This repository contains scripts and utilities to run parametric and genetic algorithm-based finite element analysis (FEA) using FreeCAD. The project is designed to automate the exploration of optimized designs by sweeping parameter values or employing a genetic algorithm to minimize von Mises stress.
