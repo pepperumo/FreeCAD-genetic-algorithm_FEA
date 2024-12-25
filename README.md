@@ -5,7 +5,6 @@
   <img src="Cranckshaft_mesh.png" alt="Image 2" width="400"/>
 </div>
 
-![Image_1](Clamp_sizes.png) ![Image_2](Cranckshaft_mesh.png)
 # FreeCAD Genetic Algorithm FEA
 
 This repository contains scripts and utilities to run parametric and genetic algorithm-based finite element analysis (FEA) using FreeCAD. The project is designed to automate the exploration of optimized designs by sweeping parameter values or employing a genetic algorithm to minimize von Mises stress.
